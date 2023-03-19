@@ -1,18 +1,18 @@
 databases:
-  - name: mysite
-    databaseName: mysite
-    user: mysite
+  - name: challenge
+    databaseName: challenge_wp0y
+    user: challenge_wp0y_user
 
 services:
   - type: web
-    name: mysite
+    name: codechallenge
     env: ruby
     buildCommand: "./bin/render-build.sh"
     startCommand: "bundle exec puma -C config/puma.rb"
     envVars:
       - key: DATABASE_URL
         fromDatabase:
-          name: mysite
+          name: challenge
           property: connectionString
       - key: RAILS_MASTER_KEY
         sync: false
